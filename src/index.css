@@ -8,15 +8,15 @@
   @apply bg-gray-100 fixed top-0 z-100 w-full;
 
   .header-content {
-    @apply flex w-full md:w-2xl mx-auto justify-between px-6 py-4;
+    @apply flex w-full max-w-2xl mx-auto justify-between items-center px-6 py-4;
   }
 
   .logo {
-    @apply h-10 w-10;
+    @apply h-15 w-15;
   }
 
   nav {
-    @apply flex flex-col items-end gap-4  bg-gray-100 absolute top-18 rounded-xl right-0 md:visible md:flex-row md:static;
+    @apply flex flex-col items-end gap-4 bg-gray-100 absolute top-23 rounded-xl right-0 md:visible md:flex-row md:static;
 
     a {
       @apply px-2 py-1 rounded-lg;
@@ -32,7 +32,7 @@
   }
 
   button {
-    @apply px-2 py-1 rounded-lg bg-green-500 text-white w-10 md:hidden;
+    @apply px-2 py-1 rounded-lg bg-green-500 text-white w-10 h-10 md:hidden;
 
     hr {
       @apply my-1;
@@ -41,7 +41,7 @@
 }
 
 main {
-  @apply mt-26 mb-6 w-full sm:w-2xl mx-auto;
+  @apply mt-26 mb-6 w-full md:w-2xl mx-auto;
 
   h1 {
     @apply text-center text-3xl;

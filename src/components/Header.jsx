@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-content">
-        <img className="logo" src="/src/assets/Icons/Skull.svg" alt="skull" />
+        <img className="logo" src="/src/assets/iron_wolf.png" alt="skull" />
         <nav className={`${navOpen ? "visible p-4" : "invisible"}`}>
           <NavLink to="/" onClick={() => setNavOpen(false)}>
             Home
