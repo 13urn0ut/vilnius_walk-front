@@ -40,7 +40,7 @@
   }
 }
 
-main {
+.main {
   @apply mt-26 mb-6 w-full md:w-2xl mx-auto;
 
   h1 {

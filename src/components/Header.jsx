@@ -1,5 +1,5 @@
 import axios from "axios";
-import { NavLink, Link } from "react-router";
+import { NavLink, Link, useNavigate } from "react-router";
 import { useContext, useState } from "react";
 import { useErrorBoundary } from "react-error-boundary";
 import UserContext from "../contexts/UserContext";
@@ -12,17 +12,23 @@ const Header = () => {
   const { user, setUser } = useContext(UserContext);
   const [navOpen, setNavOpen] = useState(false);
   const { showBoundary } = useErrorBoundary();
+  const navigate = useNavigate();
 
   const logout = async () => {
     try {
-      await axios.get(`${API_URL}/users/logout`, {
-        withCredentials: true,
-      });
+      await axios.post(
+        `${API_URL}/users/logout`,
+        {},
+        {
+          withCredentials: true,
+        }
+      );
 
       setUser(null);
 
       setNavOpen(false);
       toast.success("Logout successful");
+      navigate("/");
     } catch (err) {
       // const error = handleError(err);
       showBoundary(err);
