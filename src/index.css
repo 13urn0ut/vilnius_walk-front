@@ -1,1 +1,53 @@
 @import "tailwindcss";
+
+.app-container {
+  @apply grid min-h-screen grid-cols-1 grid-rows-[1fr_auto] text-gray-700;
+}
+
+.header {
+  @apply bg-gray-100 fixed top-0 z-100 w-full;
+
+  .header-content {
+    @apply flex w-full md:w-2xl mx-auto justify-between px-6 py-4;
+  }
+
+  .logo {
+    @apply h-10 w-10;
+  }
+
+  nav {
+    @apply flex flex-col items-end gap-4  bg-gray-100 absolute top-18 rounded-xl right-0 md:visible md:flex-row md:static;
+
+    a {
+      @apply px-2 py-1 rounded-lg;
+    }
+
+    a:hover {
+      @apply text-green-500;
+    }
+
+    a.active {
+      @apply bg-green-500 text-white;
+    }
+  }
+
+  button {
+    @apply px-2 py-1 rounded-lg bg-green-500 text-white w-10 md:hidden;
+
+    hr {
+      @apply my-1;
+    }
+  }
+}
+
+main {
+  @apply mt-26 mb-6 w-full sm:w-2xl mx-auto;
+
+  h1 {
+    @apply text-center text-3xl;
+  }
+}
+
+.footer {
+  @apply text-center py-4 bg-gray-100;
+}

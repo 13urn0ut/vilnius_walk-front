@@ -1,9 +1,15 @@
-const Main = () => {
-    return (
-        <main className="main">
-            <h1 className="main-title">The App</h1>
-        </main>
-    );
-}
+import { Route, Routes } from "react-router";
 
-export default Main
+const Main = () => {
+  return (
+    <main>
+      <Routes>
+        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/login" element={<h1>Home</h1>} />
+        <Route path="/signup" element={<h1>Home</h1>} />
+      </Routes>
+    </main>
+  );
+};
+
+export default Main;

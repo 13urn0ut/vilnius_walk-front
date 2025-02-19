@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useErrorBoundary } from "react-error-boundary";
 import UserContext from "./UserContext";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -7,6 +8,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { showBoundary } = useErrorBoundary();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -14,9 +16,10 @@ const UserContextProvider = ({ children }) => {
         const response = await axios.get(`${API_URL}/users/me`, {
           withCredentials: true,
         });
+
         setUser(response.data);
       } catch (err) {
-        console.error(err);
+        console.log(err);
       } finally {
         setLoading(false);
       }

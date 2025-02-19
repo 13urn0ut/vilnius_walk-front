@@ -10,7 +10,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 const Header = () => {
   const { user, setUser } = useContext(UserContext);
-
   const [navOpen, setNavOpen] = useState(false);
   const { showBoundary } = useErrorBoundary();
 
@@ -52,12 +51,6 @@ const Header = () => {
           {!user && (
             <NavLink to="/signup" onClick={() => setNavOpen(false)}>
               Signup
-            </NavLink>
-          )}
-
-          {user && (
-            <NavLink to="/appointments" onClick={() => setNavOpen(false)}>
-              Appointments
             </NavLink>
           )}
 
