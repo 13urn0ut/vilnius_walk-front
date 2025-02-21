@@ -32,9 +32,9 @@ const Logout = () => {
     }
   };
   return (
-    <div className="w-max mx-auto bg-red-200 py-4 px-8 rounded-2xl mt-30 flex flex-col items-center gap-3">
+    <div className="logout">
       <p>Are you sure, you want to logout?</p>
-      <div className="flex gap-3">
+      <div className="logout-buttons">
         <button onClick={logout}>Yes</button>
         <button onClick={() => navigate("/")}>No</button>
       </div>

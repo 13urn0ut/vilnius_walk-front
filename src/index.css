@@ -48,6 +48,18 @@
   }
 }
 
+.logout {
+  @apply w-max mx-auto bg-red-200 py-4 px-8 rounded-2xl mt-30 flex flex-col items-center gap-3;
+
+  .logout-buttons {
+    @apply flex gap-3;
+
+    button {
+      @apply border px-2 py-1 rounded-2xl cursor-pointer;
+    }
+  }
+}
+
 .footer {
   @apply text-center py-4 bg-gray-100;
 }
