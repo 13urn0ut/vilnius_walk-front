@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { useErrorBoundary } from "react-error-boundary";
+import { Link, useNavigate } from "react-router";
+import toast from "react-hot-toast";
 import UserContext from "../contexts/UserContext";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -11,10 +13,12 @@ const UserForm = ({ action }) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
   const { setUser } = useContext(UserContext);
   const [error, setError] = useState(null);
   const { showBoundary } = useErrorBoundary();
+  const navigate = useNavigate();
 
   const sendData = async (data) => {
     try {
@@ -27,21 +31,26 @@ const UserForm = ({ action }) => {
       );
 
       setUser(result.data);
-
+      toast.success(`Welcome ${action === "login" ? "back" : ""}`);
+      navigate("/");
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.response) {
           setError(error.response.data);
         } else if (error.request) {
-          setError('Something went wrong');
+          setError("Something went wrong");
         } else {
-          setError('No internet connection');
+          setError("No internet connection");
         }
       } else {
         showBoundary(error);
       }
     }
   };
+
+  useEffect(() => {
+    reset();
+  }, [action]);
 
   return (
     <div className="user-form ">

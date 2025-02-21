@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useErrorBoundary } from "react-error-boundary";
+// import { useErrorBoundary } from "react-error-boundary";
 import UserContext from "./UserContext";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -8,7 +8,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { showBoundary } = useErrorBoundary();
+  // const { showBoundary } = useErrorBoundary();
 
   useEffect(() => {
     const fetchUser = async () => {
