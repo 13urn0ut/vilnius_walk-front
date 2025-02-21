@@ -14,26 +14,7 @@ const Header = () => {
   const { showBoundary } = useErrorBoundary();
   const navigate = useNavigate();
 
-  const logout = async () => {
-    try {
-      await axios.post(
-        `${API_URL}/users/logout`,
-        {},
-        {
-          withCredentials: true,
-        }
-      );
-
-      setUser(null);
-
-      setNavOpen(false);
-      toast.success("Logout successful");
-      navigate("/");
-    } catch (err) {
-      // const error = handleError(err);
-      showBoundary(err);
-    }
-  };
+  
 
   const toggleNavCollapse = () => {
     setNavOpen(!navOpen);
@@ -60,7 +41,11 @@ const Header = () => {
             </NavLink>
           )}
 
-          {user && <Link onClick={logout}>Logout</Link>}
+          {user && (
+            <NavLink to="/logout" onClick={() => setNavOpen(false)}>
+              Logout
+            </NavLink>
+          )}
         </nav>
         <button onClick={toggleNavCollapse}>
           <hr />

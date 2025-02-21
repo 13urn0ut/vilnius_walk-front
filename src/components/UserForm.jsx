@@ -59,7 +59,12 @@ const UserForm = ({ action }) => {
       <form onSubmit={handleSubmit(sendData)}>
         <div>
           <label htmlFor="email"></label>
-          <input type="email" placeholder="Email" {...register("email")} />
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            {...register("email")}
+          />
           {errors.email && <span>{errors.email.message}</span>}
         </div>
 
@@ -67,6 +72,7 @@ const UserForm = ({ action }) => {
           <label htmlFor="password"></label>
           <input
             type="password"
+            id="password"
             placeholder="Password"
             {...register("password")}
           />
@@ -78,6 +84,7 @@ const UserForm = ({ action }) => {
             <label htmlFor="confirmPassword"></label>
             <input
               type="password"
+              id="confirmPassword"
               placeholder="Confirm Password"
               {...register("confirmPassword")}
             />
