@@ -2,7 +2,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useEffect, useContext, useState } from "react";
 import { useErrorBoundary } from "react-error-boundary";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import UserContext from "../contexts/UserContext";
 

@@ -1,20 +1,18 @@
-import axios from "axios";
-import { NavLink, Link, useNavigate } from "react-router";
+// import axios from "axios";
+import { NavLink } from "react-router";
 import { useContext, useState } from "react";
-import { useErrorBoundary } from "react-error-boundary";
+// import { useErrorBoundary } from "react-error-boundary";
 import UserContext from "../contexts/UserContext";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 // import handleError from "../utils/handleError";
 
-const API_URL = import.meta.env.VITE_API_URL;
+// const API_URL = import.meta.env.VITE_API_URL;
 
 const Header = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [navOpen, setNavOpen] = useState(false);
-  const { showBoundary } = useErrorBoundary();
-  const navigate = useNavigate();
-
-  
+  // const { showBoundary } = useErrorBoundary();
+  // const navigate = useNavigate();
 
   const toggleNavCollapse = () => {
     setNavOpen(!navOpen);
